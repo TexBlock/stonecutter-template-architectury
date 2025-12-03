@@ -110,5 +110,5 @@ tasks.processResources {
 tasks.register<Copy>("buildAndCollect") {
     from(tasks.remapJar.get().archiveFile, tasks.remapSourcesJar.get().archiveFile)
     into(rootProject.layout.buildDirectory.file("libs/${mod.version}/$loader"))
-    dependsOn("build")
+    dependsOn(tasks.build)
 }
