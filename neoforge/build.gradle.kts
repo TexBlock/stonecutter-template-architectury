@@ -81,14 +81,10 @@ java {
     sourceCompatibility = java
 }
 
-tasks.jar {
-    archiveClassifier = "dev"
-}
-
 tasks.remapJar {
     injectAccessWidener = true
     inputFile = tasks.shadowJar.get().archiveFile
-    archiveClassifier = null
+    archiveClassifier = "mod"
     dependsOn(tasks.shadowJar)
 }
 
