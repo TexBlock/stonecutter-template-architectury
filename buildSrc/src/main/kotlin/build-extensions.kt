@@ -26,8 +26,6 @@ value class ModData(private val project: Project) {
     val version: String get() = requireProp("mod.version")
     val group: String get() = requireProp("mod.group")
 
-    fun prop(key: String) = requireProp("mod.$key")
+    fun requireProp(key: String) = requireNotNull(project.prop(key)) { "Missing '$key'" }
     fun dep(key: String) = requireProp("deps.$key")
-
-    private fun requireProp(propName: String) = requireNotNull(project.prop(propName)) { "Missing '$propName'" }
 }
