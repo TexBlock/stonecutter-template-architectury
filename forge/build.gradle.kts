@@ -70,7 +70,7 @@ loom {
 tasks.remapJar {
     injectAccessWidener = true
     inputFile = tasks.shadowJar.get().archiveFile
-    archiveClassifier = "mod"
+    archiveClassifier = null
     dependsOn(tasks.shadowJar)
 }
 
