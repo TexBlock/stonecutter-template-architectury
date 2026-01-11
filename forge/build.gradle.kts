@@ -6,14 +6,13 @@ plugins {
 
 val loader = prop("loom.platform")!!
 val minecraft: String = stonecutter.current.version
-val common: Project = requireNotNull(stonecutter.node.sibling("")?.project) {
+val common: Project = requireNotNull(stonecutter.node.sibling("common")?.project) {
     "No common project for $project"
 }
 
 version = "${mod.version}+$minecraft"
-base {
-    archivesName.set("${mod.id}-$loader")
-}
+base.archivesName.set("${mod.id}-$loader")
+
 architectury {
     platformSetupLoomIde()
     forge()
@@ -66,19 +65,6 @@ loom {
         runDir = "../../../run"
         vmArgs("-Dmixin.debug.export=true")
     }
-}
-
-java {
-    withSourcesJar()
-    val java = if (stonecutter.eval(minecraft, ">=1.20.5")) {
-        JavaVersion.VERSION_21
-    } else if (stonecutter.eval(minecraft, ">=1.18")) {
-        JavaVersion.VERSION_17
-    } else {
-        JavaVersion.VERSION_1_8
-    }
-    targetCompatibility = java
-    sourceCompatibility = java
 }
 
 tasks.remapJar {
