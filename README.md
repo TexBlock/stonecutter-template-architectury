@@ -1,1 +1,1 @@
-## Stonecutter template for Architectury toolchain
+# Stonecutter template for Architectury toolchain
