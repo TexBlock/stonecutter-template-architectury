@@ -10,6 +10,7 @@ val common: Project = requireNotNull(stonecutter.node.sibling("common")?.project
     "No common project for $project"
 }
 
+version = "${mod.version}+$minecraft"
 base.archivesName.set("${mod.id}-$loader")
 
 architectury {
