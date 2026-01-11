@@ -11,7 +11,6 @@ architectury.common(stonecutter.tree.branches.mapNotNull {
 
 val minecraft: String = stonecutter.current.version
 
-group = mod.group
 version = "${mod.version}+$minecraft"
 base.archivesName.set("${mod.id}-common")
 
