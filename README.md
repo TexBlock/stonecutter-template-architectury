@@ -1,6 +1,6 @@
 # Stonecutter template for Architectury toolchain
 
-Stonecutter template for Architectury toolchain, continuation of [stonecutter-versioning/stonecutter-template-architectury](https://github.com/stonecutter-versioning/stonecutter-template-architectury)
+Stonecutter template for Architectury toolchain, unofficial continuation of [stonecutter-versioning/stonecutter-template-architectury](https://github.com/stonecutter-versioning/stonecutter-template-architectury)
 
 Stonecutter official documentation: https://stonecutter.kikugie.dev/wiki/
 
