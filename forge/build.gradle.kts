@@ -10,6 +10,7 @@ val common: Project = requireNotNull(stonecutter.node.sibling("common")?.project
     "No common project for $project"
 }
 
+group = mod.group
 version = "${mod.version}+$minecraft"
 base.archivesName.set("${mod.id}-$loader")
 
@@ -65,6 +66,20 @@ loom {
         runDir = "../../../run"
         vmArgs("-Dmixin.debug.export=true")
     }
+}
+
+java {
+    withSourcesJar()
+
+    val requiredJava = when {
+        stonecutter.current.parsed >= "1.20.5" -> JavaVersion.VERSION_21
+        stonecutter.current.parsed >= "1.18" -> JavaVersion.VERSION_17
+        stonecutter.current.parsed >= "1.17" -> JavaVersion.VERSION_16
+        else -> JavaVersion.VERSION_1_8
+    }
+
+    targetCompatibility = requiredJava
+    sourceCompatibility = requiredJava
 }
 
 tasks.remapJar {

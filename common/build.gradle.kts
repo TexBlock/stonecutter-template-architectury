@@ -9,15 +9,15 @@ architectury.common(stonecutter.tree.branches.mapNotNull {
     else it.project.prop("loom.platform")
 })
 
-val minecraftVersion = sc.current.version
+val minecraft: String = stonecutter.current.version
 
-base {
-    archivesName.set("${mod.id}-common")
-}
+group = mod.group
+version = "${mod.version}+$minecraft"
+base.archivesName.set("${mod.id}-common")
 
 dependencies {
-    minecraft("com.mojang:minecraft:$minecraftVersion")
-    mappings("net.fabricmc:yarn:$minecraftVersion+build.${mod.dep("yarn_build")}:v2")
+    minecraft("com.mojang:minecraft:$minecraft")
+    mappings("net.fabricmc:yarn:$minecraft+build.${mod.dep("yarn_build")}:v2")
     modImplementation("net.fabricmc:fabric-loader:${mod.dep("fabric_loader")}")
 }
 
@@ -29,4 +29,18 @@ loom {
             options.put("mark-corresponding-synthetics", "1")
         }
     }
+}
+
+java {
+    withSourcesJar()
+
+    val requiredJava = when {
+        stonecutter.current.parsed >= "1.20.5" -> JavaVersion.VERSION_21
+        stonecutter.current.parsed >= "1.18" -> JavaVersion.VERSION_17
+        stonecutter.current.parsed >= "1.17" -> JavaVersion.VERSION_16
+        else -> JavaVersion.VERSION_1_8
+    }
+
+    targetCompatibility = requiredJava
+    sourceCompatibility = requiredJava
 }
