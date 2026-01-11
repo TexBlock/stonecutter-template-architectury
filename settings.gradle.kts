@@ -19,7 +19,7 @@ plugins {
 stonecutter {
     centralScript = "build.gradle.kts"
     kotlinController = true
-    create(rootProject, file("versions/versions.json5"))
+    create(rootProject, file("versions/settings.json5"))
 }
 
-rootProject.name = "StonecutterTemplate"
+rootProject.name = "StonecutterTemplateArchitectury"
