@@ -1,0 +1,1 @@
+## Stonecutter template for Architectury toolchain
