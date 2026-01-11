@@ -1,0 +1,19 @@
+{
+  "$schema": "https://codeberg.org/stonecutter/stonecutter/src/branch/0.8/tools/settings-schema.json",
+  vcs: "1.20.1",
+  versions: ["1.20.1", "1.21.1"],
+  branches: {
+    common: {
+      versions: ["1.20.1", "1.21.1"]
+    },
+    fabric: {
+      versions: ["1.20.1", "1.21.1"]
+    },
+    forge: {
+      versions: ["1.20.1"]
+    },
+    neoforge: {
+      versions: ["1.21.1"]
+    }
+  }
+}
